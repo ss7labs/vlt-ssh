@@ -16,8 +16,9 @@ else
  SSH_HOST=${1}
 fi
 
+export VAULT_ADDR="https://dprx.agts.intra:8200"
 
-vault token lookup 1>/dev/null
+vault token lookup 1>/dev/null 2>/dev/null
 if [[ $? -eq 2 ]]; then
  source $HOME/vault/vssh/.vault_github_token
  vault login -method=github token=${VAULT_GITHUB_TOKEN}
