@@ -1,0 +1,43 @@
+#!/bin/zsh
+
+if [[ -z "${1}" ]]; then
+    echo "[INFO] Usage: vssh user@host [-p 2222]"
+    return
+fi
+
+if [[ "${1}" =~ ^-+ ]]; then
+ echo "[ERR] Additional SSH flags must be passed after the hostname. e.g. 'vssh user@host -p 2222'"
+ return
+elif [[ "${1}" =~ ^[a-zA-Z]+@[a-zA-Z0-9]+ ]]; then
+ SSH_USER=$(echo $1 | cut -d'@' -f1)
+ SSH_HOST=$(echo $1 | cut -d'@' -f2)
+else
+ SSH_USER=$(whoami)
+ SSH_HOST=${1}
+fi
+
+
+vault token lookup 1>/dev/null
+if [[ $? -eq 2 ]]; then
+ source $HOME/vault/vssh/.vault_github_token
+ vault login -method=github token=${VAULT_GITHUB_TOKEN}
+fi
+
+SRT=~/.signed-cert.pub
+if [[ -f "$SRT" ]]; then
+ dt=`ssh-keygen -Lf ~/.signed-cert.pub | grep Valid | awk -F "to " '{print $2}'`
+ now=$(date)
+ dt0=`date -d $dt`
+ #if [[ $now -ge $dt0 ]]; then
+ if expr "$now" ">=" "$dt0" > /dev/null; then
+  echo $now
+  echo $dt0
+  vault write -field=signed_key ssh-client/sign/ssh-user public_key=@$HOME/key-store/id_ed25519.pub > ~/.signed-cert.pub
+ fi
+else
+ vault write -field=signed_key ssh-client/sign/ssh-user public_key=@$HOME/key-store/id_ed25519.pub > ~/.signed-cert.pub
+fi
+
+# shift arguments one to the left to remove target address
+shift 1
+ssh -i ~/.signed-cert.pub -i ~/key-store/id_ed25519 ${SSH_USER}@${SSH_HOST} $@

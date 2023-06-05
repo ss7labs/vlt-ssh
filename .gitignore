@@ -2,4 +2,4 @@ data/*
 tls/*
 doc/danger.txt
 doc/dprx-generated.txt
-
+vssh/.vault_github_token
