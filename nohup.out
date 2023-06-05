@@ -1,0 +1,31 @@
+==> Vault server configuration:
+
+                     Cgo: disabled
+   Environment Variables: COLORTERM, DBUS_SESSION_BUS_ADDRESS, DESKTOP_SESSION, DISPLAY, EDITOR, GDMSESSION, GODEBUG, GOPATH, GTK_MODULES, HOME, HYPRLAND_CMD, HYPRLAND_INSTANCE_SIGNATURE, JAVA_HOME, KEYTIMEOUT, KITTY_INSTALLATION_DIR, KITTY_PID, KITTY_PUBLIC_KEY, KITTY_WINDOW_ID, LANG, LANGUAGE, LOGNAME, MANPAGER, MANWIDTH, MOZ_ENABLE_WAYLAND, OLDPWD, PATH, PWD, QTWEBENGINE_DICTIONARIES_PATH, QT_ACCESSIBILITY, SHELL, SHLVL, SYSTEMD_EXEC_PID, TERM, TERMINAL, TERMINFO, USER, USERNAME, VDIR, WAYLAND_DISPLAY, XCURSOR_SIZE, XDG_BACKEND, XDG_CURRENT_DESKTOP, XDG_DATA_DIRS, XDG_RUNTIME_DIR, XDG_SEAT, XDG_SESSION_CLASS, XDG_SESSION_DESKTOP, XDG_SESSION_ID, XDG_SESSION_TYPE, XDG_VTNR, ZAP_DIR, ZAP_PLUGIN_DIR, ZAP_ZSHRC, _, _JAVA_AWT_WM_NONREPARENTING
+              Go Version: go1.20.3
+              Listener 1: tcp (addr: "0.0.0.0:8200", cluster address: "0.0.0.0:8201", max_request_duration: "1m30s", max_request_size: "33554432", tls: "disabled")
+               Log Level: 
+                   Mlock: supported: true, enabled: true
+           Recovery Mode: false
+                 Storage: file
+                 Version: Vault v1.13.2, built 2023-04-25T13:02:50Z
+             Version Sha: b9b773f1628260423e6cc9745531fd903cae853f
+
+==> Vault server started! Log data will stream in below:
+
+2023-06-05T09:43:34.526+0500 [INFO]  proxy environment: http_proxy="" https_proxy="" no_proxy=""
+2023-06-05T09:43:34.526+0500 [WARN]  no `api_addr` value specified in config or in VAULT_API_ADDR; falling back to detection if possible, but this value should be manually set
+2023-06-05T09:43:34.546+0500 [INFO]  core: Initializing version history cache for core
+2023-06-05T09:43:43.290+0500 [INFO]  core: security barrier not initialized
+2023-06-05T09:43:43.291+0500 [INFO]  core: security barrier not initialized
+2023-06-05T09:43:43.291+0500 [INFO]  core: seal configuration missing, not initialized
+2023-06-05T09:43:54.304+0500 [INFO]  core: security barrier not initialized
+2023-06-05T09:43:54.306+0500 [INFO]  core: security barrier not initialized
+2023-06-05T09:43:54.306+0500 [INFO]  core: seal configuration missing, not initialized
+2023-06-05T09:44:05.317+0500 [INFO]  core: security barrier not initialized
+2023-06-05T09:44:05.318+0500 [INFO]  core: security barrier not initialized
+2023-06-05T09:44:05.318+0500 [INFO]  core: seal configuration missing, not initialized
+2023-06-05T09:44:16.329+0500 [INFO]  core: security barrier not initialized
+2023-06-05T09:44:16.331+0500 [INFO]  core: security barrier not initialized
+2023-06-05T09:44:16.331+0500 [INFO]  core: seal configuration missing, not initialized
+==> Vault shutdown triggered

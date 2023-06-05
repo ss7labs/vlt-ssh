@@ -1,0 +1,4 @@
+sudo cp tls/vault-cacert.pem /usr/share/ca-certificates/vault-ca.crt
+sudo dpkg-reconfigure ca-certificates
+Yes and select at bottom from list.
+
